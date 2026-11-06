@@ -43,9 +43,9 @@ userB.greet(); // "userB, a 27 year(s) old user."
 // ? But how does this magic work? Let's break it down.
 
 // ? Firstly, the way that Object.create() works is that whatever we pass into it as an argument
-// ? gets added to the returned object, in the form of a hidden property called `__proto__`.
-// ? This `__proto__` property houses the shared functionality (the `greet` and `birthday` functions).
-// ? It's actually not that hidden, we can see it in the console, but what it does is it
+// ? gets "linked" to the returned object through a hidden property called `__proto__`.
+// ? This `__proto__` property references `userFunctions` (which houses the `greet` and `birthday` functions).
+// ? It's actually not that hidden a property, we can see it in the console, but what it does is it
 // ? enables objects to SHARE FUNCTIONALITY without wasting memory.
 
 // ? This means that neither the `userA` nor the `userB` objects actually "have" a `greet` or a `birthday` property.
@@ -60,6 +60,9 @@ console.log(userB.hasOwnProperty('birthday')); // false
 // ? Every object in JavaScript has its own prototype and there is actually a "final boss" prototype - Object.prototype.
 // ? This Object.prototype is kind of the final link in this chain that houses all common functionality for all objects,
 // ? one of them being the `hasOwnProperty` method - a function which tells us if a property is directly owned by the object.
+// ? The final boss btw - Object.prototype - doesn't have a prototype - it's `null`.
+
+// ! Note: Creating an object using Object.create(null) will also make its prototype be `null` and won't point to the "final boss" Object.prototype.
 
 // ? To recap how this linking works in our case, it goes:
 // ? 1. User object { username, age, __proto__: userFunctions }

@@ -1,6 +1,6 @@
 // * Closures
 
-// ? Functions by default have no memory - they get created and when they finish running, get destroyed
+// ? Functions by default have no memory - they get created and when they finish running, their memory (all of its local variables and its arguments) gets destroyed
 function multiply(x, y) {
   const result = x * y;
   return result;
@@ -47,7 +47,7 @@ function createCounter() {
 
 // ? When we do something like this - a bit of "magic" happens (spoiler alert, it's not magic - it's never magic)
 // ? The function that gets returned - keeps the memory of that `count` variable alive through this thing we call
-// ? "The function's backpack" - we'll define it more technically later, but for now we can stick to this term
+// ? "The function's backpack" - it's defined more technically in the slides, but we can stick to this term for the remainder of the course
 const myCounter = createCounter();
 console.log(myCounter()); // 1
 console.log(myCounter()); // 2

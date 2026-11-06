@@ -7,7 +7,7 @@
 
 const enemies = [];
 
-class Enemy {
+class EnemyClassic {
   constructor(x, y) {
     this.x = x;
     this.y = y;
@@ -22,7 +22,7 @@ class Enemy {
 
 const bullets = [];
 
-class Bullet {
+class BulletClassic {
   constructor(x, y) {
     this.x = x;
     this.y = y;
@@ -31,7 +31,7 @@ class Bullet {
 
 // ? Then your game logic would look something like this
 
-class SpaceInvaders {
+class SpaceInvadersClassic {
   static WAVE_SIZE = 1000;
 
   static checkCollision({ bullet, bulletIdx, enemy, enemyIdx }) {
@@ -42,13 +42,13 @@ class SpaceInvaders {
   }
 
   static nextWave() {
-    for (let i = 0; i < SpaceInvaders.WAVE_SIZE; i++) {
-      enemies.push(new Enemy(i, i));
+    for (let i = 0; i < SpaceInvadersClassic.WAVE_SIZE; i++) {
+      enemies.push(new EnemyClassic(i, i));
     }
   }
 
   static shoot(player) {
-    bullets.push(new Bullet(player.x, player.y));
+    bullets.push(new BulletClassic(player.x, player.y));
   }
 }
 
@@ -152,6 +152,10 @@ class Bullet {
     this.reset();
   }
 
+  update() {
+    // Update position, check collision etc
+  }
+
   reset(x = 0, y = 0, velocity = 0) {
     this.x = x;
     this.y = y;
@@ -162,18 +166,26 @@ class Bullet {
 const enemyPool = new Pool(1000, () => new Enemy());
 const bulletsPool = new Pool(10_000, () => new Bullet());
 
+const player = { x: 0, y: 0 }; // This is our player object
+
 // Spawn an enemy/bullet
 enemyPool.spawn(100, 200);
 bulletsPool.spawn(player.x, player.y, 100);
 
-// Process enemies/bullets
+// Update bullets
+bulletsPool.processActiveObjects((bullet) => {
+  bullet.update();
+});
+
+// Update enemies
 enemyPool.processActiveObjects((enemy) => {
   enemy.update();
+});
 
-  bulletsPool.processActiveObjects((bullet) => {
-    bullet.update();
-
-    // Kill an enemy/bullet
+// Check for collisions
+bulletsPool.processActiveObjects((bullet) => {
+  enemyPool.processActiveObjects((enemy) => {
+    // Kill an enemy/bullet if they collide
     if (enemy.checkCollision(bullet)) {
       enemyPool.kill(enemy);
       bulletsPool.kill(bullet);

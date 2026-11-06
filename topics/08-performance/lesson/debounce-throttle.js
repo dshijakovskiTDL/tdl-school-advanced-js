@@ -27,6 +27,7 @@ function expensiveDatabaseLookup(inputText) {
 }
 const debouncedDatabaseLookup = debounce(expensiveDatabaseLookup, 500);
 
+const userInput = document.getElementById('user-input');
 userInput.addEventListener('input', (e) => {
   debouncedDatabaseLookup(e.target.value);
 });

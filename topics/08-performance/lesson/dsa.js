@@ -2,8 +2,7 @@
 
 // * Array vs Map/Set lookups
 
-// ? Remember that Arrays have an O(n) lookup time, so if you can, don't use them
-// ? as storage for data you want to check the existence of
+// ? Remember that Arrays have an O(n) search time, so if you can, don't use them as storage for when you want to look for something within the data structure.
 const array = ['data', 'other-data', 'another-data', 'target-data'];
 array.includes('target-data'); // O(n)
 
@@ -54,3 +53,5 @@ function fastFind(users, id) {
 // ? .forEach() - calls a function for each item in the collection -> SLOW
 // ? for...of - uses the iterator protocol to iterate through the collection -> SLOW
 // ? for(let i = 0; i < length; i++) - just incrementing a variable's value -> FAST
+
+// ! Note: In the modern V8 engine, the difference is not noticeable, but it still depends on what you are working on and which engine (version) you are using.

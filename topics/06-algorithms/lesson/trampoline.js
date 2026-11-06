@@ -30,4 +30,4 @@ function factorial(n, acc = 1) {
 const trampolineFactorial = trampoline(factorial);
 const output = trampolineFactorial(10000); // No Stack overflow happening
 
-console.log(output);
+console.log(output); // Will print Infinity because the result of the factorial is too large for JavaScript to handle, but you get the idea.

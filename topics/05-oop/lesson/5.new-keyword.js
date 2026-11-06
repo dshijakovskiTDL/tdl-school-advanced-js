@@ -6,8 +6,7 @@
 // ? The previous approach to having a factory function is good and it works
 // ? However, it's pretty verbose
 
-// ? To solve this issue, JavaScript introduced the "new" keyword
-// ? which changes the behavior of these functions.
+// ? To solve this issue, we can use the "new" keyword, which changes the behavior of these functions.
 // ? When calling a function with the "new" keyword, the following things happen:
 // ? - We get that "user" object implicitly defined within the function - we don't have to create it
 // ? - That same "user" object is automatically returned for us - we don't have to write that return statement
@@ -18,8 +17,9 @@
 
 // ? The answer to the first question won't surprise you - it's the "this" keyword
 // ? Anytime we use the "new" keyword to call a "constructor" function like `userCreator`
-// ? the "this" keyword automatically refers to this implicit object created within `userCreator`
-// ? we then need to add properties to it (like username and age) and the user will be automatically returned to us
+// ? the "this" keyword automatically refers to an implicit object created within `userCreator`
+// ? we then need to add properties to it (like username and age) and that implicit object (our user object) will be automatically returned to us
+
 function userCreator(username, age) {
   this.username = username;
   this.age = age;
@@ -33,8 +33,7 @@ console.log(userA); // { username: 'userA', age: 25 }
 // ? When we create a regular function in JavaScript, that function is actually
 // ? an Object + Function combination held in memory
 
-// ? What this means is that behind the scenes, every JavaScript function
-// ? has an accompanying Object to go along with it
+// ? What this means is that behind the scenes, every JavaScript function is also an Object
 function doSomething() {
   console.log('Doing something...');
 }
@@ -44,9 +43,10 @@ doSomething.age = 30;
 doSomething(); // 'Doing something...'
 console.log(doSomething.age); // 30
 
-// ? This object is not empty by default - it has one property assigned to it at the start
+// ? This Object is not empty by default - it has a property assigned to it at the start
 // ? and that property is called `prototype`. The value of it is just an empty Object.
-console.log(doSomething.prototype); // {}
+// ! It technically isn't an empty object, but has a `constructor` property that references the function itself, but that's not important to us now.
+console.log(doSomething.prototype); // { }
 
 // ? This `prototype` object, attached to the Object-part of a JavaScript function is
 // ? how we can attach the functions to our user and they basically replace the `userFunctions` Object.

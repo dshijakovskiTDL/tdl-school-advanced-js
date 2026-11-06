@@ -24,7 +24,7 @@ const arr = [8, 2, 1, 3, 5, 10]; // length: 6
 // * that index would be the LAST PARENT - last node that has at least one child
 
 // ? We could theoretically start from the end of the array, but we would just waste
-// ? time looking at nodes at indexes that are Out of bounds.
+// ? time looking at leaf nodes that have no children themselves.
 // ? So we start at "Math.floor(arr.length / 2) - 1" to save ourselves some time.
 
 // ? In this case that's idx: 2

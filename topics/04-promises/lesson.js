@@ -1,7 +1,7 @@
 // * Promises
 
 // ? Promise constructors
-new Promise((resolve, reject) => {
+new Promise((resolve) => {
   setTimeout(() => resolve('Done'), 3000);
 }).then((result) => {
   console.log(result);
@@ -32,16 +32,16 @@ new Promise((resolve, reject) => {
 // ? Now, after 3000ms - the function `() => resolve('Done')` is added to the Task Queue, ready to run
 // ? In this case, the Call Stack is empty, so it gets put on the Call Stack and runs immediately
 // ? This function calls resolve with the argument 'Done' - which resolves the Promise with the result - the string "Done"
-// ! [[PromiseState]]: "fulfilled"
-// ! [[PromiseResult]]: "Done"
-// ! [[PromiseFulfillReactions]]: [PromiseReactionRecord<`(result) => console.log(result)`>]
-// ! [[PromiseRejectReactions]]: []
 
 // ? Finally, because the Promise has settled (in this case resolved)
-// ? all the Handlers in the [[PromiseFulfillReactions]] are executed one by one immediately (or are they?)
+// ? all the Handlers in the [[PromiseFulfillReactions]] are executed one by one immediately (...or are they?)
 // ? This in turn runs the `(result) => console.log(result)` function with the [[PromiseResult]] passed in - which is the string "Done"
 // ? And then the string "Done" gets printed to the console
 // ? ...phew
+// ! [[PromiseState]]: "fulfilled"
+// ! [[PromiseResult]]: "Done"
+// ! [[PromiseFulfillReactions]]: []
+// ! [[PromiseRejectReactions]]: []
 
 // ? --------------------------------------------------------------------------------------------------------------------------- ?
 
@@ -61,7 +61,7 @@ console.log('Me first');
 // ? Promises in the real world
 // ! ILLUSTRATION
 function blockFor500ms() {
-  // ? Some code that blocks the main thread for 500ms...
+  // ? Imagine some code that blocks the main thread for 500ms...
 }
 
 setTimeout(() => console.log('Hello!'), 0);
@@ -69,7 +69,7 @@ setTimeout(() => console.log('Hello!'), 0);
 const catFactsPromise = fetch('https://catfacts.com/2');
 catFactsPromise.then(gotData);
 
-blockFor500ms();
+blockFor500ms(); // ? This will block the main thread for 500ms
 
 console.log('Me first!');
 

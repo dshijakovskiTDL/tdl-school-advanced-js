@@ -91,7 +91,7 @@ function getSquaredHalvedNumbers(list, squared) {
 }
 
 // ? I mean, it kinda works and looks good enough...
-// ? But wait, what's this?? The next day comes and you need functionality that will duplicate all of the values in an array??
+// ? But wait, what's this?? The next day comes and you need functionality that will return the duplicated values of an array??
 // ? You don't panic, you just write it out:
 function duplicateNumbers(list) {
   let output = [];
@@ -105,7 +105,7 @@ function duplicateNumbers(list) {
 
 // ? ....Do I dare create an even more generic function that does either squared or halved or duplicated numbers based on a value I pass in?
 // ? Here goes nothing...
-function doOperation(list, operation) {
+function doOperationBad(list, operation) {
   let output = [];
 
   for (let i = 0; i < list.length; i++) {
