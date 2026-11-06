@@ -12,23 +12,23 @@ console.log(squareFive());
 console.log(5 * 5); // Old math
 
 // ? But what if tomorrow I needed to have that math be a bit more complicated,
-// ? like squaring it, and dividing by the same number times 10
-function squareFiveDivideByTen() {
-  return (5 * 5) / (5 * 10);
+// ? like squaring it, and dividing by the same number plus 10
+function squareFiveDivideByFivePlusTen() {
+  return (5 * 5) / (5 + 10);
 }
 
 // ? Okay, I still don't really need a function for this, I can just do it in-line
-console.log((5 * 5) / (5 * 10)); // New math
+console.log((5 * 5) / (5 + 10)); // New math
 
 // ? Here comes the kicker - what if next week I need to do the same thing, but for different numbers each time
-// ? Somewhere its the same operation with 4 squared, somewhere with 125 squared - am I just gonna keep going
-console.log((4 * 4) / (4 * 10));
-console.log((125 * 125) / (125 * 10));
+// ? Somewhere it's the same operation with 4 squared, somewhere with 125 squared - am I just gonna keep going
+console.log((4 * 4) / (4 + 10));
+console.log((125 * 125) / (125 + 10));
 
 // ? THERE'S GOTTA BE A BETTER WAY...
 // ? Well, there is and this is exactly why we NEED functions - to *GENERALIZE* our functionality
 function doMath(num) {
-  return ((num * num) / num) * 10;
+  return (num * num) / (num + 10);
 }
 
 console.log(doMath(5));
@@ -75,7 +75,7 @@ function getHalvedNumbers(list) {
 }
 
 // ? And maybe I'm picking up on a pattern here and I don't want this code duplicated, so I think ahead and I say
-// ? "Well, I can just pass a flag in there to tell me weather I need to return squared or halved numbers"
+// ? "Well, I can just pass a flag in there to tell me whether I need to return squared or halved numbers"
 function getSquaredHalvedNumbers(list, squared) {
   let output = [];
 
@@ -124,14 +124,14 @@ function doOperation(list, operation) {
 // ? Okay, now I've gone too far... That looks horrible NOW, let alone coming back to this a month from now to add a new operation
 // ? So here we are - stuck with this problem - so what do we do?
 
-// ? Well, remember when I said that we could change the BEHAVIOR of the function, instead of just the VALUES we pass in it
+// ? Well, remember when I said that we could change the BEHAVIOR of the function, instead of just the VALUES we pass into it
 // ? What if - instead of passing just VALUES in our functions, we could pass in CODE... how would that even work? Can we even do it?
 // ? Turns out, we absolutely can! We can pass in FUNCTIONS as arguments to other functions, because in JavaScript:
 // ? Functions are what's called "First Class citizens" - meaning they behave as regular variables
 // ? - We can pass them as arguments
 // ? - We can return them as outputs from functions
 
-// ? Now, armed with this new knowledge, how can we fix our horrible function from before
+// ? Now, armed with this new knowledge, how can we fix our horrible function from before?
 // ? Hopefully someone already has an idea and that idea is that we pass in the operation as a function:
 function doOperation(list, operation) {
   let output = [];
@@ -159,8 +159,8 @@ console.log(doOperation(myList, duplicateNum));
 // ? This approach allows us to:
 // ? - Decouple logic from data - instead of hardcoding operations like "square" or "double", we define the behavior in separate functions
 // ? - Reduce code duplication - one generic function handles all kinds of operations
-// ? - Improves maintainability - we can add other behaviors without touching the existing functionality
-// ? - Abstracts the behavior from the implementation - `doOperation` doesn't care HOW the operation works, only that IT WORKS
+// ? - Improve maintainability - we can add other behaviors without touching the existing functionality
+// ? - Abstract the behavior from the implementation - `doOperation` doesn't care HOW the operation works, only that IT WORKS
 
 // ? If you haven't noticed by now, we basically just implemented JavaScript's built-in Array.map() function
 // ? This is a key concept in JavaScript - functions are first-class citizens and as such they can be used in very interesting ways

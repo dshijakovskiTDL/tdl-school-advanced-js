@@ -39,17 +39,17 @@ userB.greet(); // "userB, a 27 year(s) old user."
 // ! Illustration on how the Prototype chain works with Object.create()
 
 // ? So now we have only 1 copy of each function (`greet` and `birthday`) and they
-// ? automatically know to which user they are referring to when we call them - that's almost magic!
+// ? automatically know which user they are referring to when we call them - that's almost magical!
 // ? But how does this magic work? Let's break it down.
 
-// ? Firstly, the way that Object.create() works is that whatever we pass into is as an argument
+// ? Firstly, the way that Object.create() works is that whatever we pass into it as an argument
 // ? gets added to the returned object, in the form of a hidden property called `__proto__`.
 // ? This `__proto__` property houses the shared functionality (the `greet` and `birthday` functions).
 // ? It's actually not that hidden, we can see it in the console, but what it does is it
 // ? enables objects to SHARE FUNCTIONALITY without wasting memory.
 
-// ? This means that neither the `userA` nor the `userB` objects actually "have"  a `greet` or a `birthday` property.
-// ? We can actually check this by running the following code>
+// ? This means that neither the `userA` nor the `userB` objects actually "have" a `greet` or a `birthday` property.
+// ? We can actually check this by running the following code:
 console.log(userA.hasOwnProperty('greet')); // false
 console.log(userB.hasOwnProperty('birthday')); // false
 

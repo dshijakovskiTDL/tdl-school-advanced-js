@@ -12,7 +12,7 @@ const resultB = multiply(5, 3); // 15
 // ? These 2 invocations have nothing, absolutely nothing in common
 // ? When we first call multiply with the arguments 2 and 4 - the moment it returns the result, it forgets about 2 and 4
 // ? Then, when we call multiply a second time with 5 and 3 - it starts fresh, with those 2 arguments and computes a new result
-// ? This is simple, straight forward and very expected - but can we do something about it to make it complex?
+// ? This is simple, straightforward and very expected - but can we do something about it to make it complex?
 
 // ? --------------------------------------------------------------------------------------------------------------------------- ?
 // ! ILLUSTRATION
@@ -31,7 +31,7 @@ const newDoubler = createDoubler();
 console.log(newDoubler(3)); // 6
 console.log(newDoubler(7)); // 14
 
-// ? We call these functions (createDoubler) - Factory Functions, meaning functions that return functions
+// ? We call these functions (createDoubler) - Factory Functions, meaning functions that return functions (or objects)
 
 // ? Now, what if we had some state in the Factory function, that's used in the returned function
 function createCounter() {
@@ -47,7 +47,7 @@ function createCounter() {
 
 // ? When we do something like this - a bit of "magic" happens (spoiler alert, it's not magic - it's never magic)
 // ? The function that gets returned - keeps the memory of that `count` variable alive through this thing we call
-// ? "The function's backpack" - we'll define it more technically later, but for now can stick to this term
+// ? "The function's backpack" - we'll define it more technically later, but for now we can stick to this term
 const myCounter = createCounter();
 console.log(myCounter()); // 1
 console.log(myCounter()); // 2

@@ -49,7 +49,7 @@ function findMin(list) {
 // ? We are going through the entire array, checking each element once
 
 // ? Space Complexity: O(1)
-// ? We are only using 1 extra variable - `min` - regardless the size of the array
+// ? We are only using 1 extra variable - `min` - regardless of the size of the array
 
 // ? --------------------------------------------------------------------------------------------------------------------------- ?
 

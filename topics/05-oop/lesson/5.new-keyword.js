@@ -12,7 +12,7 @@
 // ? - We get that "user" object implicitly defined within the function - we don't have to create it
 // ? - That same "user" object is automatically returned for us - we don't have to write that return statement
 
-// ? This makes our code much more cleaner and readable, but it does leave us with a couple of questions:
+// ? This makes our code so much cleaner and more readable, but it does leave us with a couple of questions:
 // ? 1. What label do we use to refer to that implicit object defined in the function?
 // ? 2. How do we connect the functions to this object? How do we link the `__proto__` property and to what?
 
@@ -75,7 +75,7 @@ UserCreator.prototype.birthday = function () {
 // ? However it too has a couple of disadvantages...
 // ? For one, it's kind of verbose still, especially defining the functions
 // ? And for another, we have no way of actually preventing other developers
-// ? of calling this function WITHOUT the "new" keyword
+// ? from calling this function WITHOUT the "new" keyword
 
 // ! QUIZ
 // ! What will happen if we call `UserCreator` without the "new" keyword?

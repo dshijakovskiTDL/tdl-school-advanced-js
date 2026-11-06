@@ -2,7 +2,7 @@
 
 // * 1. Make Change - Greedy
 
-// ? Implement a function `makeChange` that takes in an amount of money and returns
+// ? Implement a function `makeChangeGreedy` that takes in an amount of money and returns
 // ? the minimum number of coins needed to return the passed in amount of money as change
 
 // ? You have the coins 25, 10 and 5 available to create the change
@@ -15,7 +15,7 @@ console.log(makeChangeGreedy(45, [25, 10, 5])); // 3 (Can return the change with
 
 // * 2. Make Change - Brute Force
 
-// ? Implement a brute-force solution to the `makeChange` function
+// ? Implement a brute-force solution to the `makeChangeBruteForce` function
 // ? to make sure that the optimal solution (minimum amount of coins) is always the returned solution
 
 function makeChangeBruteForce(amount, coinsAvailable) {

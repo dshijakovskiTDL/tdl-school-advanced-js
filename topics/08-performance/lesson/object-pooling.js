@@ -1,7 +1,7 @@
 // * Object Pooling
 
 // ? Let's say you are making Space Invaders and you need to have a bunch of enemies appear in waves
-// ? You would also need track their location and make sure when your player shoots them, they die and disappear
+// ? You would also need to track their location and make sure when your player shoots them, they die and disappear
 
 // ? the naive way to do it would be just adding the enemies to an array and removing them once they die
 
@@ -18,7 +18,7 @@ class Enemy {
   }
 }
 
-// ? What's more, you would also need to keep track of your bullets positions to be able to calculate collision with enemies
+// ? What's more, you would also need to keep track of your bullets' positions to be able to calculate collision with enemies
 
 const bullets = [];
 
@@ -67,7 +67,7 @@ class SpaceInvaders {
 // ? We can create a generic Pool class to keep track of a pre-created array of objects
 // ? while also keeping track of their "active" state (i.e. whether they are currently in the game)
 
-// ? Note: For this to work, we will need to enforce that each object (Enemy and Bullet) have a `reset` method
+// ? Note: For this to work, we will need to enforce that each object (Enemy and Bullet) has a `reset` method
 // ? So that we can reset their positions/properties when we spawn them and also kill them
 
 class Pool {

@@ -25,7 +25,7 @@ let userFunctions = {
 const userA = createUser('userA', 28);
 userA.greet(); // userA, a 28 years old user.
 
-// ? ...what? When did `this` become undefined
+// ? ...what? When did `this` become undefined?
 
 // ? Well, remember what we said about regular functions:
 // ? `this` refers to the OBJECT THAT CALLED THE FUNCTION - in this case that would be the global `this` object
@@ -51,7 +51,7 @@ userA.greet(); // userA, a 28 years old user.
 // ? So, when we call `userA.greet()` - the `greet` function's implicit `this` parameter refers to `userA`
 // ? Inside `greet` we have `printYears` - now as an arrow function - whose `this` keyword is that of its lexical scope
 // ? And since its lexical scope is within the `greet` function (that's where it was created)
-// ? `printYear`'s `this` keyword now also refers to `userA`
+// ? The `printYears` function's `this` keyword now also refers to `userA`
 
 // ? A little bit of helpful advice here, if you are working with code like the one above:
 // ? For direct methods that you would call on objects like `greet` and `birthday` - use regular functions

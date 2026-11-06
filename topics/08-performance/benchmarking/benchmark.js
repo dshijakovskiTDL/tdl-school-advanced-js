@@ -17,7 +17,7 @@ Deno.bench('JS sort', { baseline: true }, (b) => {
   // ? We can use the benchmarking context `b` to configure when we start and end the test
   // ? This is done so that the array initialization does not interfere with the algorithm measurement
   b.start();
-  array.sort();
+  array.sort((a, b) => a - b);
   b.end();
 });
 

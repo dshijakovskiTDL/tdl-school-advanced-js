@@ -78,13 +78,13 @@ console.log(arr2); // [1, 2, 4, 5, 7]
 
 // ? 1. We did theoretically increase the time complexity by sorting before filtering
 // ? because the sort method now has to compare potentially more items than before
-// ? But this is not an issue as the sorting algorithm's time complexity is still O(n) to O(n*log n) regardless the input
+// ? But this is not an issue as the sorting algorithm's time complexity is still O(n) to O(n*log n) regardless of the input
 
 // ? Note: JavaScript's built-in sort method uses different sorting algorithms depending on the use case
 // ? and it ranges from O(n) to O(n*log n)
 
 // ? Nevertheless, this is a trade-off we may be willing to take - it depends on the situation
-// ? It is important to know that this trade off will almost always be present
+// ? It is important to know that this trade-off will almost always be present
 // ? We will need to choose to optimize for time or space complexity depending on the problem we are trying to solve
 
 // ? 2. Our code is buggy... What if we had more than 1 duplicate for a particular number
@@ -115,7 +115,7 @@ console.log(arr2); // [1, 2, 2, 4, 5, 7]
 // ? If we do this in reverse, we won't miss any items
 // ? [1, 2, 2, 2]
 // ?           ^ i is here (3)
-// ? arr.splice(i, 1) - delete i item starting at index 3
+// ? arr.splice(i, 1) - delete 1 item starting at index 3
 // ? [1, 2, 2]
 // ?           ^ i is still here (3) - before iteration ends
 // ? *iteration ends* i--

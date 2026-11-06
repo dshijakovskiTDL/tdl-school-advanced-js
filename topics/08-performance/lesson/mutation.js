@@ -46,7 +46,7 @@ console.log(usersDataFast);
 
 // ? Let's say we are running some code that does some animations and moves a square along the screen
 // ? The function that moves the square takes in the square object, along with how much it has moved
-// ? along the X and Y axis respectively
+// ? along the X and Y axes respectively
 // ? This function should return the new position of the square so that we can redraw it.
 
 class Square {
@@ -73,4 +73,4 @@ function moveFast(square, dx, dy) {
 }
 
 // ? Now we just use the square's x and y properties and redraw it where it should be shown
-// ? No new objects creation, just the main square one
+// ? No new object creation, just the main square one

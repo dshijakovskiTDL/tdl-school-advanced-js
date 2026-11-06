@@ -23,7 +23,7 @@ new Promise((resolve, reject) => {
 // ! [[PromiseRejectReactions]]: []
 
 // ? After that, we attach a `.then()` call to the Promise, with the callback `(result) => console.log(result)` passed in
-// ? This now, adds a new Record in the Promise's [[PromiseFulfillReactions]] List, to run when the Promise resolves
+// ? This now adds a new Record in the Promise's [[PromiseFulfillReactions]] List, to run when the Promise resolves
 // ! [[PromiseState]]: "pending"
 // ! [[PromiseResult]]: undefined
 // ! [[PromiseFulfillReactions]]: [PromiseReactionRecord<`(result) => console.log(result)`>]

@@ -2,8 +2,8 @@
 
 // * Array vs Map/Set lookups
 
-// ? Remember that Arrays have an O(n) lookup times, so if you can, don't use them
-// ? as storages for data you want to check the existence of
+// ? Remember that Arrays have an O(n) lookup time, so if you can, don't use them
+// ? as storage for data you want to check the existence of
 const array = ['data', 'other-data', 'another-data', 'target-data'];
 array.includes('target-data'); // O(n)
 
@@ -12,7 +12,7 @@ const set = new Set(['data', 'other-data', 'another-data', 'target-data']);
 set.has('data'); // O(1)
 
 const map = new Map([['data-key', 'value']]);
-Map.has('data-key'); // O(1)
+map.has('data-key'); // O(1)
 
 // ? --------------------------------------------------------------------------------------------------------------------------- ?
 

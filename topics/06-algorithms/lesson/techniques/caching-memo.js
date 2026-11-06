@@ -2,8 +2,8 @@
 
 // * Caching & Memoization
 
-// ? Oftentimes the problems we face require us to to multiple expensive calculations
-// ? and we need to me smart about how and when we perform these calculations
+// ? Oftentimes the problems we face require us to do multiple expensive calculations
+// ? and we need to be smart about how and when we perform these calculations
 // ? otherwise our algorithms can quickly become super slow and inefficient
 
 // ? In such cases, we want to look at potential ways to save previously computed results
@@ -74,7 +74,7 @@ console.timeEnd('staircase-slow');
 // ? ways(4) = 3 + 2 = 5
 
 // ? ...but notice how many times we calculated ways(2) and ways(1) and ways(0)
-// ? this makes our current implementation very slow once it gets larger staircases
+// ? this makes our current implementation very slow once it gets to larger staircases
 
 // * The time complexity for the above algorithm is O(2^n) - exponential
 // ? because we are branching out into 2 recursive calls for each stair

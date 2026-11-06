@@ -21,7 +21,7 @@ const arr = [8, 2, 1, 3, 5, 10]; // length: 6
 
 // * Why start at that index?
 // * Because if that starting array were a Heap,
-// * that index would be the the LAST PARENT - last node that has at least one child
+// * that index would be the LAST PARENT - last node that has at least one child
 
 // ? We could theoretically start from the end of the array, but we would just waste
 // ? time looking at nodes at indexes that are Out of bounds.
@@ -187,9 +187,9 @@ const heap = [10, 5, 8, 3, 2, 1];
 // ? Since we swapped with index 3 -> Call heapify on that index
 
 // ? idx = 3
-// ? P @ idx: 3 = 2
-// ? L @ idx: 7 = X (Out of bounds)
-// ? R @ idx: 8 = X (Out of bounds)
+// ? P @ idx: 3 => 2
+// ? L @ idx: 7 => X (Out of bounds)
+// ? R @ idx: 8 => X (Out of bounds)
 
 // ? Nothing to compare with - children out of bounds - end here
 // ? --------------------------------------------------------------------------------------------------------------------------- ?
