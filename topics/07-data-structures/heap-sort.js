@@ -110,7 +110,7 @@ const heap = [10, 5, 8, 3, 2, 1];
 
 // ? Start with the Heap size being the same as the length of the array
 
-// ? Do the following until the Heap size > 0:
+// ? Do the following while the Heap size > 0:
 // ? 1. Swap the first and last elements IN THE HEAP
 // ? 2. Shrink the size of the Heap (from the end)
 // ? 3. Call heapify on index 0
