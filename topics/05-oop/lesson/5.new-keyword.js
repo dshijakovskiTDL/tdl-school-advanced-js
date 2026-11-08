@@ -80,7 +80,24 @@ UserCreator.prototype.birthday = function () {
 // ! QUIZ
 // ! What will happen if we call `UserCreator` without the "new" keyword?
 
-// ? In that case, the "this" object will refer to the global "this" object
-// ? and nothing will work as we want it to at that point
+// ? In that case, the "this" object will refer to the `globalThis` object (in non-strict mode) and will be `undefined` in strict mode
+// ? so then nothing will work as we want it to at that point
 
-// ? So how do we fix this...
+// ? So how do we fix this? How do we make sure that we must use the "new" keyword to call this function?
+
+// ? Well, one way is to use `new.target`, which refers to the function that was called with the "new" keyword, if it was called with the "new" keyword, otherwise it's `undefined`
+// ? So we can use this to check if the function was indeed called with the "new" keyword, and if not, throw an error
+
+function UserCreatorSafe(username, age) {
+  if (!new.target) {
+    throw new Error('You must use the "new" keyword to call this function');
+  }
+
+  this.username = username;
+  this.age = age;
+}
+
+new UserCreatorSafe('userA', 25); // All good
+UserCreatorSafe('userA', 25); // `new.target` is `undefined` so an error is thrown
+
+// ? But who wants to write the same if statement in all of their "constructor" functions? There must be a better way...

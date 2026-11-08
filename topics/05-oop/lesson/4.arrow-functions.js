@@ -23,16 +23,17 @@ let userFunctions = {
 };
 
 const userA = createUser('userA', 28);
-userA.greet(); // userA, a 28 years old user.
+userA.greet(); // userA, a undefined year old user.
 
-// ? ...what? When did `this` become undefined?
+// ? Let's assume we run this file as a CommonJS module using Node (non-strict mode)
+// ? ...what? When did the user's age become undefined?
 
 // ? Well, remember what we said about regular functions:
-// ? `this` refers to the OBJECT THAT CALLED THE FUNCTION - in this case that would be the global `this` object
-// ? and the global `this` object doesn't have a property called `age`
+// ? `this` refers to the OBJECT THAT CALLED THE FUNCTION - but `printYears()` is a plain function call (there's no object to the left of a dot)
+// ? so in non-strict mode, `this` falls back to the `globalThis` object, which doesn't have a property called `age`
 
-// ? what's more, modern runtimes run in "strict mode" by default and don't even bind to the global `this` object
-// ? so actually `this` is undefined and we can't access the `age` property of an undefined data type...
+// ? what's more, running this file in strict mode, won't even bind to the `globalThis` object - `this` will just be `undefined`...
+// ? ...and we won't be able to access the `age` property of an undefined data type, which will throw an error...
 // ? so there you have it - an amazing, just chef's kiss type of bug...
 
 // ? So again I ask you, what do we do?
@@ -42,7 +43,7 @@ userA.greet(); // userA, a 28 years old user.
 
 // ? The solution is... Arrow functions!
 // ? Arrow functions, as we saw before, don't bind to the object that called them
-// ? Rather they bind to the lexical scope in which they were defined
+// ? Rather they bind to the `this` of the lexical scope in which they were defined
 // ? In our case, we defined `printYears` inside of `greet` - a regular function
 // ? and regular functions bind to the object that called them - in this case the `userA` object
 
