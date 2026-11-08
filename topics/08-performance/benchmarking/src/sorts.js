@@ -1,3 +1,5 @@
+const jsSort = (arr) => arr.sort((a, b) => a - b);
+
 const insertionSort = (arr) => {
   const n = arr.length;
   for (let i = 1; i < n; i++) {
@@ -50,6 +52,7 @@ const quickSort = (arr, left = 0, right = arr.length - 1) => {
 };
 
 export const Sort = {
+  jsSort,
   insertionSort,
   bubbleSort,
   quickSort,

@@ -1,0 +1,10 @@
+{
+  "type": "module",
+  "main": "src/benchmark.js",
+  "scripts": {
+    "start": "bun src/benchmark.js"
+  },
+  "dependencies": {
+    "mitata": "^1.0.34"
+  }
+}
