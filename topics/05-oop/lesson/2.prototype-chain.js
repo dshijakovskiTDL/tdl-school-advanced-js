@@ -43,8 +43,8 @@ userB.greet(); // "userB, a 27 year(s) old user."
 // ? But how does this magic work? Let's break it down.
 
 // ? Firstly, the way that Object.create() works is that whatever we pass into it as an argument
-// ? gets "linked" to the returned object through a hidden property called `__proto__`.
-// ? This `__proto__` property references `userFunctions` (which houses the `greet` and `birthday` functions).
+// ? gets "linked" to the returned object through a hidden property called `[[Prototype]]`.
+// ? This `[[Prototype]]` property references `userFunctions` (which houses the `greet` and `birthday` functions).
 // ? It's actually not that hidden a property, we can see it in the console, but what it does is it
 // ? enables objects to SHARE FUNCTIONALITY without wasting memory.
 
@@ -54,7 +54,7 @@ console.log(userA.hasOwnProperty('greet')); // false
 console.log(userB.hasOwnProperty('birthday')); // false
 
 // ? ...wait what's happening... where did this `hasOwnProperty` method come from? We certainly didn't add it...
-// ? Well, it turns out that that `__proto__` property - has its own hidden `__proto__` property...
+// ? Well, it turns out that the thing that the `[[Prototype]]` property references (userFunctions) - has its own hidden `[[Prototype]]` property...
 
 // ? This leads us to the main idea of how JavaScript implements OOP - prototype chaining.
 // ? Every object in JavaScript has its own prototype and there is actually a "final boss" prototype - Object.prototype.
@@ -65,9 +65,9 @@ console.log(userB.hasOwnProperty('birthday')); // false
 // ! Note: Creating an object using Object.create(null) will also make its prototype be `null` and won't point to the "final boss" Object.prototype.
 
 // ? To recap how this linking works in our case, it goes:
-// ? 1. User object { username, age, __proto__: userFunctions }
-// ? 2. User functions { greet, birthday, __proto__: Object.prototype }
-// ? 3. Object.prototype { hasOwnProperty, ..., __proto__: null }
+// ? 1. User object { username, age, [[Prototype]]: userFunctions }
+// ? 2. User functions { greet, birthday, [[Prototype]]: Object.prototype }
+// ? 3. Object.prototype { hasOwnProperty, ..., [[Prototype]]: null }
 
 // ? This prototype chain allows JavaScript to go layer by layer in looking for a particular property,
 // ? when we are trying to access it in our code. So when we do:

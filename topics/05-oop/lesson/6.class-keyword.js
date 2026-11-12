@@ -8,7 +8,7 @@
 
 // ? The syntax differences are as follows:
 // ? - We use the "class" keyword to define the `User` class - a blueprint for a "User" object
-// ? - We use the special name "constructor" for the function that creates our "User" object
+// ? - We use the special function named "constructor" which will create our "User" object
 // ? - We define the methods (greet, birthday) inside the class
 
 class User {

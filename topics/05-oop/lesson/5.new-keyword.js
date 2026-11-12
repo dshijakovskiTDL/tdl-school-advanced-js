@@ -13,7 +13,7 @@
 
 // ? This makes our code so much cleaner and more readable, but it does leave us with a couple of questions:
 // ? 1. What label do we use to refer to that implicit object defined in the function?
-// ? 2. How do we connect the functions to this object? How do we link the `__proto__` property and to what?
+// ? 2. How do we connect the functions to this object? How do we link the `[[Prototype]]` property and to what?
 
 // ? The answer to the first question won't surprise you - it's the "this" keyword
 // ? Anytime we use the "new" keyword to call a "constructor" function like `userCreator`
@@ -51,7 +51,7 @@ console.log(doSomething.prototype); // { }
 // ? This `prototype` object, attached to the Object-part of a JavaScript function is
 // ? how we can attach the functions to our user and they basically replace the `userFunctions` Object.
 
-// ? The implicit "this" object's `__proto__` property is linked
+// ? When we call a function using the `new` keyword - Its implicit "this" object's `[[Prototype]]` property is linked
 // ? to the function's `prototype` property automatically.
 // ? That's how this syntactic sugar gives us prototype chaining.
 

@@ -76,7 +76,4 @@ const userB = createUser('userB', 27);
 // ? However, each new user gets 2 new functions just for them, so 1 million users === 2 million functions
 // ? 2 million functions in memory that do the EXACT SAME THING...dude. No.
 
-// ? Also, if that's not enough - if we want to add a new feature to our users,
-// ? we will now need to manually add it to each user object - since they have already been created...
-
 // ? So what's the solution?
